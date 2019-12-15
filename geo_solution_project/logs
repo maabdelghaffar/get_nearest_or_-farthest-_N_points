@@ -1,0 +1,212 @@
+Watching for file changes with StatReloader
+"GET /getnpoints HTTP/1.1" 200 4145
+
+ ########## Request was received on 12/14/2019, 23:11:06 and the request body was: b'xcoordinate=1243&ycoordinate=3423&inputpoints=3&operator=distance&csrfmiddlewaretoken=4ZfJI6vdRfvaF0ErZzGZIEcN5l6cI7iJ1rUria2jSNfgziWCUbuJwZdSbxkgtZd2&action=post' ##########
+
+Internal Server Error: /getnpoints
+Traceback (most recent call last):
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 396, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: my_nearest_points_points
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/moataz/geo_solution_project/my_nearest_points/views.py", line 46, in getpoints
+    res = serialize('geojson', Points.objects.annotate(distance=Distance('location', user_location)).order_by(operation)[0:int(number_of_points)],  geometry_field='location', fields=('distance','id'))
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/serializers/__init__.py", line 128, in serialize
+    s.serialize(queryset, **options)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/serializers/base.py", line 90, in serialize
+    for count, obj in enumerate(queryset, start=1):
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/models/query.py", line 276, in __iter__
+    self._fetch_all()
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/models/query.py", line 1261, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/models/query.py", line 57, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1137, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 396, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: my_nearest_points_points
+"POST /getnpoints HTTP/1.1" 500 18852
+
+ ########## Request was received on 12/14/2019, 23:14:12 and the request body was: b'xcoordinate=1243&ycoordinate=3423&inputpoints=3&operator=distance&csrfmiddlewaretoken=4ZfJI6vdRfvaF0ErZzGZIEcN5l6cI7iJ1rUria2jSNfgziWCUbuJwZdSbxkgtZd2&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 107
+
+ ########## Request was received on 12/14/2019, 23:17:33 and the request body was: b'xcoordinate=243434.3&ycoordinate=34343.2&inputpoints=5&operator=distance&csrfmiddlewaretoken=4ZfJI6vdRfvaF0ErZzGZIEcN5l6cI7iJ1rUria2jSNfgziWCUbuJwZdSbxkgtZd2&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 730
+Watching for file changes with StatReloader
+"GET /getnpoints HTTP/1.1" 200 4145
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2443
+"GET /auth/login/ HTTP/1.1" 200 584
+"POST /auth/login/ HTTP/1.1" 200 730
+"POST /auth/login/ HTTP/1.1" 200 735
+"POST /auth/login/ HTTP/1.1" 200 735
+"POST /auth/login/ HTTP/1.1" 302 0
+"GET /getnpoints HTTP/1.1" 200 4145
+
+ ########## Request was received on 12/14/2019, 23:35:49 and the request body was: b'xcoordinate=323423.3&ycoordinate=34234.2&inputpoints=5&operator=distance&csrfmiddlewaretoken=Gz9ZGMr4HafKFqVqOkCp2r9mTI4v5KwTSAfcpPaHjUisfNDlDxLDzjHN7TUBcF2D&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 730
+/Users/moataz/geo_solution_project/my_nearest_points/views.py changed, reloading.
+Watching for file changes with StatReloader
+
+ ########## Request was received on 12/14/2019, 23:36:20 and the request body was: b'xcoordinate=&ycoordinate=&inputpoints=&operator=distance&csrfmiddlewaretoken=Gz9ZGMr4HafKFqVqOkCp2r9mTI4v5KwTSAfcpPaHjUisfNDlDxLDzjHN7TUBcF2D&action=post' ##########
+
+GDAL_ERROR 1: b'JSON parsing error: unexpected character (at offset 36)'
+Internal Server Error: /getnpoints
+Traceback (most recent call last):
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/moataz/geo_solution_project/my_nearest_points/views.py", line 43, in getpoints
+    user_location = GEOSGeometry('{ "type": "Point", "coordinates": [%s , %s]}'%(x_input, y_input))
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/contrib/gis/geos/geometry.py", line 711, in __init__
+    ogr = gdal.OGRGeometry.from_json(geo_input)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/contrib/gis/gdal/geometries.py", line 153, in from_json
+    return OGRGeometry(OGRGeometry._from_json(force_bytes(geom_input)))
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/contrib/gis/gdal/geometries.py", line 142, in _from_json
+    return capi.from_json(geom_input)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/contrib/gis/gdal/prototypes/errcheck.py", line 83, in check_geom
+    raise GDALException('Invalid geometry pointer returned from "%s".' % func.__name__)
+django.contrib.gis.gdal.error.GDALException: Invalid geometry pointer returned from "OGR_G_CreateGeometryFromJson".
+"POST /getnpoints HTTP/1.1" 500 15033
+
+ ########## Request was received on 12/14/2019, 23:36:30 and the request body was: b'xcoordinate=&ycoordinate=&inputpoints=&operator=distance&csrfmiddlewaretoken=Gz9ZGMr4HafKFqVqOkCp2r9mTI4v5KwTSAfcpPaHjUisfNDlDxLDzjHN7TUBcF2D&action=post' ##########
+
+GDAL_ERROR 1: b'JSON parsing error: unexpected character (at offset 36)'
+Internal Server Error: /getnpoints
+Traceback (most recent call last):
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/moataz/geo_solution_project/my_nearest_points/views.py", line 43, in getpoints
+    user_location = GEOSGeometry('{ "type": "Point", "coordinates": [%s , %s]}'%(x_input, y_input))
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/contrib/gis/geos/geometry.py", line 711, in __init__
+    ogr = gdal.OGRGeometry.from_json(geo_input)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/contrib/gis/gdal/geometries.py", line 153, in from_json
+    return OGRGeometry(OGRGeometry._from_json(force_bytes(geom_input)))
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/contrib/gis/gdal/geometries.py", line 142, in _from_json
+    return capi.from_json(geom_input)
+  File "/Users/moataz/Documents/anaconda3/lib/python3.7/site-packages/django/contrib/gis/gdal/prototypes/errcheck.py", line 83, in check_geom
+    raise GDALException('Invalid geometry pointer returned from "%s".' % func.__name__)
+django.contrib.gis.gdal.error.GDALException: Invalid geometry pointer returned from "OGR_G_CreateGeometryFromJson".
+"POST /getnpoints HTTP/1.1" 500 15033
+Watching for file changes with StatReloader
+"GET /getnpoints HTTP/1.1" 200 4145
+"GET /static/js/jquery-2.2.4.min.js HTTP/1.1" 304 0
+"GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+
+ ########## Request was received on 12/14/2019, 23:36:56 and the request body was: b'xcoordinate=32424&ycoordinate=243324&inputpoints=3&operator=distance&csrfmiddlewaretoken=kfVVoAM5DQvFmiOUUwwaf0FxyZTlFeZnwg187DvIfAynWFwPJJFoMSdYMaJrM9v7&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 480
+
+ ########## Request was received on 12/14/2019, 23:37:19 and the request body was: b'xcoordinate=34343.43&ycoordinate=34434.34&inputpoints=5&operator=distance&csrfmiddlewaretoken=kfVVoAM5DQvFmiOUUwwaf0FxyZTlFeZnwg187DvIfAynWFwPJJFoMSdYMaJrM9v7&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 731
+/Users/moataz/geo_solution_project/my_nearest_points/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /getnpoints HTTP/1.1" 200 4145
+"GET /static/js/jquery-2.2.4.min.js HTTP/1.1" 304 0
+"GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+
+ ########## Request was received on 12/14/2019, 23:39:11 and the request body was: b'xcoordinate=34243.3&ycoordinate=33434.6&inputpoints=4&operator=distance&csrfmiddlewaretoken=hv81pq2UauuAQ24W3Z3ciG0m9RQWwPCLtwee8tLxMexiqpMRSccqPyyNn2G2DK8v&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 605
+
+ ########## Request was received on 12/14/2019, 23:41:20 and the request body was: b'xcoordinate=353434.9&ycoordinate=454544.3&inputpoints=2&operator=distance&csrfmiddlewaretoken=hv81pq2UauuAQ24W3Z3ciG0m9RQWwPCLtwee8tLxMexiqpMRSccqPyyNn2G2DK8v&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 355
+Watching for file changes with StatReloader
+"GET /getnpoints HTTP/1.1" 200 4145
+"GET /static/js/jquery-2.2.4.min.js HTTP/1.1" 304 0
+"GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+
+ ########## Request was received on 12/14/2019, 23:42:00 and the request body was: b'xcoordinate=343434.3&ycoordinate=34344.3&inputpoints=2&operator=distance&csrfmiddlewaretoken=6NC7ZwEdlIP1B1NZlyYkBtyyoaon5nUtiOIkIznQXsSJbovUaL7y8l6ZCletciqd&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 355
+Watching for file changes with StatReloader
+"GET /getnpoints HTTP/1.1" 200 4145
+"GET /static/js/jquery-2.2.4.min.js HTTP/1.1" 304 0
+"GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+
+ ########## Request was received on 12/14/2019, 23:43:21 and the request body was: b'xcoordinate=32423.3&ycoordinate=34334.3&inputpoints=5&operator=distance&csrfmiddlewaretoken=VDowswJkN1CatsyF9k2xYhmoAGx4kunl7EuJbzsXpLFS3PgAYxbLv9UPORnarpT5&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 731
+"GET /getnpoints HTTP/1.1" 200 4197
+"GET /static/js/jquery-2.2.4.min.js HTTP/1.1" 304 0
+"GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+
+ ########## Request was received on 12/14/2019, 23:44:54 and the request body was: b'xcoordinate=33434.3&ycoordinate=234243.3&inputpoints=2&operator=distance&csrfmiddlewaretoken=IQSJ80iDkxnjtWoO7fsIt8V3UoqVHeAPURYWR31gWhq13j6JWsBW00tu8zg1O96z&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 355
+/Users/moataz/geo_solution_project/my_nearest_points/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/moataz/geo_solution_project/my_nearest_points/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /getnpoints HTTP/1.1" 200 4197
+"GET /static/js/jquery-2.2.4.min.js HTTP/1.1" 304 0
+"GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2443
+
+ ########## Request was received on 12/14/2019, 23:50:13 and the request body was: b'xcoordinate=917651.7&ycoordinate=790243&inputpoints=5&operator=distance&csrfmiddlewaretoken=2JSYp8yzaZWVDWC80XFpxVBMrOcdOhbLeKYb8bhcMJZDdjk3PaOD4N9dFZ2jVcHv&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 730
+/Users/moataz/geo_solution_project/my_nearest_points/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/moataz/geo_solution_project/my_nearest_points/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/moataz/geo_solution_project/my_nearest_points/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /getnpoints HTTP/1.1" 200 4197
+"GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+"GET /static/js/jquery-2.2.4.min.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2443
+
+ ########## Request was received on 12/14/2019, 23:54:46 and the request body was: b'xcoordinate=12323.34&ycoordinate=3434.3&inputpoints=2&operator=distance&csrfmiddlewaretoken=In7SHUu9p3UhxzvReifKrDGbCo0rBqJgUod5qXdM1NXZ7WdM3voYYveCQzQxIlf0&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 319
+/Users/moataz/geo_solution_project/my_nearest_points/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /getnpoints HTTP/1.1" 200 4197
+"GET /static/js/jquery-2.2.4.min.js HTTP/1.1" 304 0
+"GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2443
+
+ ########## Request was received on 12/15/2019, 00:02:38 and the request body was: b'xcoordinate=603403.300000000046566&ycoordinate=1090031.800000000046566&inputpoints=3&operator=distance&csrfmiddlewaretoken=W3jjh4M7BIDtD5e52RTJDr1NPj8Q5pLO84pw07vKdsGbdsW0R42Xajze3uYWckhy&action=post' ##########
+
+"POST /getnpoints HTTP/1.1" 200 429
