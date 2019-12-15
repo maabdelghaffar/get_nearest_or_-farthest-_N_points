@@ -1,0 +1,7 @@
+This project implements a function to select the nearest or the farthest N points based on the input X and Y and according to the sected operation.
+
+To upload the data, a management adhoc option created as "manage.py importdata path/to/csv/file" having id:x:y format.
+
+The project is still ongoing and requires a lot of improvement to push as production level 
+
+

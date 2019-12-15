@@ -21,7 +21,7 @@ from datetime import datetime
 # Get an instance of a logger
 logger = logging.getLogger('app-logger')
 
-
+# I have used the login function from the admin module
 def mylogin(request):
     username = request.POST['username']
     password = request.POST['password']
@@ -30,8 +30,10 @@ def mylogin(request):
         login(request, user)
     return render(request, 'login.html')
 
-def getpoints(request):
 
+# the main login is in this view, where I use the annotate to collect the points according to distance
+def getpoints(request):
+    # there is a custom log message for the request parameters as required  
     if request.POST.get('action') == 'post':
         now = datetime.now() # current date and time
         date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
