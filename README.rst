@@ -126,13 +126,12 @@ Install supporting tools
 .. code-block:: shell
     $ sudo apt-get install -y ant maven git gettext
 
-3- Setup Python virtual environment
-
-Here is where Geonode will later be running.
+3- Setup Python virtual environment (Here is where Geonode will be running)
 
 Add the virtualenvwrapper to your new environement.
 
 .. code-block:: shell
+
     $ cd /home/geonode/dev
     $ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
     $ export WORKON_HOME=/home/geonode/dev/.venvs
@@ -166,16 +165,17 @@ To download the latest geonode version from github, the command clone is used
 .. Note:: If you are following the GeoNode training, skip the following command. You can find the cloned repository in /home/geonode/dev
 
 .. code-block:: shell
+    
     $ git clone https://github.com/GeoNode/geonode.git
 
 Install Nodejs PPA and other tools required for static development
 
 This is required for static development
 
-.. Note::
-    If you are following GeoNode’s training, nodejs is already installed in the Virtual Machine skip the first three command and jump to cd geonode/geonode/static
+.. Note:: If you are following GeoNode’s training, nodejs is already installed in the Virtual Machine skip the first three command and jump to cd geonode/geonode/static
     
 .. code-block:: shell
+    
         $ sudo apt-get install nodejs npm
         $ cd geonode/geonode/static
         $ npm install --save-dev
@@ -185,6 +185,7 @@ This is required for static development
 Install GeoNode in the new active local virtualenv
 
 .. code-block:: shell
+    
     $ cd /home/geonode/dev
     $ pip install -e geonode --use-mirrors
     $ cd geonode
@@ -192,7 +193,9 @@ Install GeoNode in the new active local virtualenv
 Create local_settings.py
 
 Copy the sample file /home/geonode/dev/geonode/geonode/local_settings.py.geoserver.sample and rename it to be local_settings.py 
+
 .. code-block:: shell
+    
     $ cd /home/geonode/dev/geonode
     $ cp geonode/local_settings.py.geoserver.sample geonode/local_settings.py
     $ gedit geonode/local_settings.py
@@ -200,10 +203,13 @@ Copy the sample file /home/geonode/dev/geonode/geonode/local_settings.py.geoserv
 In the local_settings.py file, add the following line after the import statements:
 
 .. code-block:: python
+    
     SITEURL = "http://localhost:8000/"
 
 In the DATABASES dictionary under the 'default' key, change only the values for the keys NAME, USER and PASSWORD to be as follows:
+
 .. code-block:: python
+    
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -220,6 +226,7 @@ In the DATABASES dictionary under the 'default' key, change only the values for 
 In the DATABASES dictionary under the 'datastore' key, change only the values for the keys NAME, USER and PASSWORD to be as follows:
 
 .. code-block:: python
+    
     # vector datastore for uploads
     'datastore' : {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
@@ -238,6 +245,7 @@ In the DATABASES dictionary under the 'datastore' key, change only the values fo
 In the CATALOGUE dictionary under the 'default' key, uncomment the USER and PASSWORD keys to activate the credentials for GeoNetwork as follows:
 
 .. code-block:: python
+    
     CATALOGUE = {
     'default': {
         # The underlying CSW implementation
@@ -264,6 +272,7 @@ In the CATALOGUE dictionary under the 'default' key, uncomment the USER and PASS
 From the virtual environment, first you need to align the database structure using the following command :
 
 .. code-block:: shell
+    
     $ cd /home/geonode/dev/geonode
     $ python manage.py migrate
 
@@ -273,17 +282,20 @@ From the virtual environment, first you need to align the database structure usi
 then setup GeoServer using the following command:
 
 .. code-block:: shell
+    
     $ paver setup
+   
 6- Now we can start our geonode instance
 
-.. warning::
-    Don’t forget to stop the GeoNode Production services if enabled
+.. warning:: Don’t forget to stop the GeoNode Production services if enabled
 
 .. code-block:: shell
+    
     service apahe2 stop
     service tomcat7 stop
 
 .. code-block:: shell
+    
     $ paver start
 
 Now you can visit the geonode site by typing http://localhost:8000 into your browser window
