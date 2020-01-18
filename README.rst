@@ -40,6 +40,7 @@ Install python native libraries and tools
     $ sudo apt-get install -y python-dev python-pil python-lxml python-pyproj python-shapely python-nose python-httplib2 python-pip software-properties-common
 
 Install python virtual environment
+
 .. code-block:: shell
     $ sudo pip install virtualenvwrapper
 
@@ -47,12 +48,14 @@ Install postgresql and postgis
 
 .. code-block:: shell
     $ sudo apt-get install postgresql-10 postgresql-10-postgis-2.4
+    
 Change postgres password expiry and set a pasword  
 
 .. code-block:: shell
     $ sudo passwd -u postgres # change password expiry infromation
     $ sudo passwd postgres # change unix password for postgres
 Create geonode role and database
+
 .. code-block:: shell
     $ su postgres
     $ createdb geonode_dev
@@ -72,25 +75,34 @@ Edit PostgreSQL configuration file
 
 .. code-block:: shell
     sudo gedit /etc/postgresql/10/main/pg_hba.conf
+
 Scroll to the bottom of the file and edit this line
 
 .. code-block:: shell
     # "local" is for Unix domain socket connections only
     local   all             all                            peer
+
 As follows
+
 .. code-block:: shell
     # "local" is for Unix domain socket connections only
     local   all             all                                trust
+
 Then restart PostgreSQL to make the changes effective
+
 .. code-block:: shell
     sudo service postgresql restart
+
 Java dependencies
 
 .. code-block:: shell
     $ sudo apt-get install -y openjdk-11-jdk --no-install-recommends
+
 Install supporting tools
+
 .. code-block:: shell
     $ sudo apt-get install -y ant maven git gettext
+
 3- Setup Python virtual environment
 
 Here is where Geonode will later be running.
@@ -103,30 +115,34 @@ Add the virtualenvwrapper to your new environement.
     $ export WORKON_HOME=/home/geonode/dev/.venvs
     $ source /usr/local/bin/virtualenvwrapper.sh
     $ export PIP_DOWNLOAD_CACHE=$HOME/.pip-downloads
+
 Since we are using Ubuntu, you can add the above settings to your .bashrc file 
+
+.. code-block:: shell
 
     $ echo export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python >> ~/.bashrc
     $ echo export WORKON_HOME=/home/geonode/dev/.venvs >> ~/.bashrc
     $ echo source /usr/local/bin/virtualenvwrapper.sh >> ~/.bashrc
     $ echo export PIP_DOWNLOAD_CACHE=$HOME/.pip-downloads >> ~/.bashrc
-
+    
     And reload the settings by running
-    .. code-block:: shell
-        $ source ~/.bashrc
+    $ source ~/.bashrc
+
 Set up the local virtual environment for Geonode
 .. code-block:: shell
     $ mkvirtualenv -p python2.7 geonode
     $ workon geonode # or $ source /home/geonode/dev/.venvs/geonode/bin/activate
     This creates a new directory where you want your project to be and creates a new virtualenvironment
+
 4- Download/Clone GeoNode from Github
 
 To download the latest geonode version from github, the command clone is used
 
-.. Note::
-    If you are following the GeoNode training, skip the following command. You can find the cloned repository in /home/geonode/dev
+.. Note:: If you are following the GeoNode training, skip the following command. You can find the cloned repository in /home/geonode/dev
 
 .. code-block:: shell
     $ git clone https://github.com/GeoNode/geonode.git
+
 Install Nodejs PPA and other tools required for static development
 
 This is required for static development
@@ -139,8 +155,7 @@ This is required for static development
         $ cd geonode/geonode/static
         $ npm install --save-dev
         
-.. Note::
-Every time you want to update the static files after making changes to the sources, go to geonode/static and run ‘grunt production’.
+.. Note:: Every time you want to update the static files after making changes to the sources, go to geonode/static and run ‘grunt production’.
 
 Install GeoNode in the new active local virtualenv
 
@@ -148,6 +163,7 @@ Install GeoNode in the new active local virtualenv
     $ cd /home/geonode/dev
     $ pip install -e geonode --use-mirrors
     $ cd geonode
+
 Create local_settings.py
 
 Copy the sample file /home/geonode/dev/geonode/geonode/local_settings.py.geoserver.sample and rename it to be local_settings.py 
@@ -155,11 +171,12 @@ Copy the sample file /home/geonode/dev/geonode/geonode/local_settings.py.geoserv
     $ cd /home/geonode/dev/geonode
     $ cp geonode/local_settings.py.geoserver.sample geonode/local_settings.py
     $ gedit geonode/local_settings.py
-In the local_settings.py file, add the following line after the import statements:
 
+In the local_settings.py file, add the following line after the import statements:
 
 .. code-block:: python
     SITEURL = "http://localhost:8000/"
+
 In the DATABASES dictionary under the 'default' key, change only the values for the keys NAME, USER and PASSWORD to be as follows:
 .. code-block:: python
     DATABASES = {
@@ -174,7 +191,9 @@ In the DATABASES dictionary under the 'default' key, change only the values for 
         ....
         ...
      },
+
 In the DATABASES dictionary under the 'datastore' key, change only the values for the keys NAME, USER and PASSWORD to be as follows:
+
 .. code-block:: python
     # vector datastore for uploads
     'datastore' : {
@@ -190,7 +209,9 @@ In the DATABASES dictionary under the 'datastore' key, change only the values fo
         ...
     }
 }
+
 In the CATALOGUE dictionary under the 'default' key, uncomment the USER and PASSWORD keys to activate the credentials for GeoNetwork as follows:
+
 .. code-block:: python
     CATALOGUE = {
     'default': {
@@ -220,8 +241,8 @@ From the virtual environment, first you need to align the database structure usi
 .. code-block:: shell
     $ cd /home/geonode/dev/geonode
     $ python manage.py migrate
-.. warning::
-If the start fails because of an import error related to osgeo or libgeos, then please consult the `Install GDAL for Development <http://https://training.geonode.geo-solutions.it/005_dev_workshop/004_devel_env/gdal_install.html>`_ 
+
+.. warning:: If the start fails because of an import error related to osgeo or libgeos, then please consult the `Install GDAL for Development <http://https://training.geonode.geo-solutions.it/005_dev_workshop/004_devel_env/gdal_install.html>`_ 
 
 
 then setup GeoServer using the following command:
@@ -232,11 +253,14 @@ then setup GeoServer using the following command:
 
 .. warning::
     Don’t forget to stop the GeoNode Production services if enabled
+
 .. code-block:: shell
     service apahe2 stop
     service tomcat7 stop
+
 .. code-block:: shell
     $ paver start
+
 Now you can visit the geonode site by typing http://localhost:8000 into your browser window
 
 Next ...
