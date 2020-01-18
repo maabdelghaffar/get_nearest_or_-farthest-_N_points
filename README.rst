@@ -14,13 +14,11 @@ The steps to be followed are:
 5- Install and start Geoserver
 6- Start GeoNode
 
-.. note:: 
-    The following commands/steps will be executed on your terminal 
+.. note:: The following commands/steps will be executed on your terminal 
 
-.. warning:: 
-    If you have a running GeoNode service, you will need to stop it before starting the following steps. To stop GeoNode you will need to run:
+.. warning::  If you have a running GeoNode service, you will need to stop it before starting the following steps. To stop GeoNode you will need to run:
 
-.. code-block::sh
+.. code-block:: sh
     service apahe2 stop   # or your installed server
     service tomcat7 stop  # or your version of tomcat
 
