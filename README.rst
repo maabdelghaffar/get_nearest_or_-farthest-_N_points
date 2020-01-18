@@ -3,20 +3,27 @@ How to Install GeoNode for development
 
 Summary of installation 
 .......................
+
 This section demonstrates a summarization of the steps to be followed in order to install GeoNode for development using Ubuntu 18.04. The following steps will be customised to fit both GeoNode-Project and GeoNode-Core for development purpose.
 
 The steps to be followed are:
 .............................
+
 1- Install build tools and libraries
+
 2- Install dependencies and supporting tools
+
 3- Setup Python virtual environment
+
 4- Clone and install GeoNode from Github
+
 5- Install and start Geoserver
+
 6- Start GeoNode
 
 .. note:: The following commands/steps will be executed on your terminal 
 
-.. warning::  If you have a running GeoNode service, you will need to stop it before starting the following steps. To stop GeoNode you will need to run:
+.. warning:: If you have a running GeoNode service, you will need to stop it before starting the following steps. To stop GeoNode you will need to run:
 
 .. code-block:: shell
     service apahe2 stop   # or your installed server
@@ -32,10 +39,12 @@ Installation steps
 1- Install build tools and libraries
 
 .. code-block:: shell
+
     $ sudo apt-get install -y build-essential libxml2-dev libxslt1-dev libpq-dev zlib1g-dev
 
 2- Install dependencies and supporting tools
-Install python native libraries and tools
+
+    Install python native libraries and tools
 
 .. code-block:: shell
     $ sudo apt-get install -y python-dev python-pil python-lxml python-pyproj python-shapely python-nose python-httplib2 python-pip software-properties-common
@@ -131,7 +140,9 @@ Since we are using Ubuntu, you can add the above settings to your .bashrc file
     $ source ~/.bashrc
 
 Set up the local virtual environment for Geonode
+
 .. code-block:: shell
+
     $ mkvirtualenv -p python2.7 geonode
     $ workon geonode # or $ source /home/geonode/dev/.venvs/geonode/bin/activate
     This creates a new directory where you want your project to be and creates a new virtualenvironment
