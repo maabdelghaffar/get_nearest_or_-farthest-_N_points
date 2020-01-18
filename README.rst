@@ -18,7 +18,7 @@ The steps to be followed are:
 
 .. warning::  If you have a running GeoNode service, you will need to stop it before starting the following steps. To stop GeoNode you will need to run:
 
-.. code-block:: sh
+.. code-block:: shell
     service apahe2 stop   # or your installed server
     service tomcat7 stop  # or your version of tomcat
 
