@@ -61,16 +61,17 @@ Create geonode role and database
     $ createdb geonode_dev
     $ createdb geonode_dev-imports
     $ psql
-        postgres=#
-        postgres=# \password postgres
-        postgres=# CREATE USER geonode_dev WITH PASSWORD 'geonode_dev'; # should be same as password in setting.py
-        postgres=# GRANT ALL PRIVILEGES ON DATABASE "geonode_dev" to geonode_dev;
-        postgres=# GRANT ALL PRIVILEGES ON DATABASE "geonode_dev-imports" to geonode_dev;
-        postgres=# \q
+    $ postgres=#
+    $ postgres=# \password postgres
+    $ postgres=# CREATE USER geonode_dev WITH PASSWORD 'geonode_dev'; # should be same as password in setting.py
+    $ postgres=# GRANT ALL PRIVILEGES ON DATABASE "geonode_dev" to geonode_dev;
+    $ postgres=# GRANT ALL PRIVILEGES ON DATABASE "geonode_dev-imports" to geonode_dev;
+    $ postgres=# \q
     $ psql -d geonode_dev-imports -c 'CREATE EXTENSION postgis;'
     $ psql -d geonode_dev-imports -c 'GRANT ALL ON geometry_columns TO PUBLIC;'
     $ psql -d geonode_dev-imports -c 'GRANT ALL ON spatial_ref_sys TO PUBLIC;'
     $ exit
+
 Edit PostgreSQL configuration file
 
 .. code-block:: shell
