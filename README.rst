@@ -28,6 +28,7 @@ Geonode-Project gives the user flexibility to customize the installation of the 
 
 Installation steps
 ..................
+
 1- Install build tools and libraries
 
 .. code-block:: shell
