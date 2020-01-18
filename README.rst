@@ -26,6 +26,7 @@ The steps to be followed are:
 .. warning:: If you have a running GeoNode service, you will need to stop it before starting the following steps. To stop GeoNode you will need to run:
 
 .. code-block:: shell
+    
     service apahe2 stop   # or your installed server
     service tomcat7 stop  # or your version of tomcat
 
@@ -39,7 +40,7 @@ Installation steps
 1- Install build tools and libraries
 
 .. code-block:: shell
-
+    
     $ sudo apt-get install -y build-essential libxml2-dev libxslt1-dev libpq-dev zlib1g-dev
 
 2- Install dependencies and supporting tools
@@ -47,26 +48,32 @@ Installation steps
     Install python native libraries and tools
 
 .. code-block:: shell
+    
     $ sudo apt-get install -y python-dev python-pil python-lxml python-pyproj python-shapely python-nose python-httplib2 python-pip software-properties-common
 
 Install python virtual environment
 
 .. code-block:: shell
+    
     $ sudo pip install virtualenvwrapper
 
 Install postgresql and postgis
 
 .. code-block:: shell
+    
     $ sudo apt-get install postgresql-10 postgresql-10-postgis-2.4
     
 Change postgres password expiry and set a pasword  
 
 .. code-block:: shell
+    
     $ sudo passwd -u postgres # change password expiry infromation
     $ sudo passwd postgres # change unix password for postgres
+
 Create geonode role and database
 
 .. code-block:: shell
+    
     $ su postgres
     $ createdb geonode_dev
     $ createdb geonode_dev-imports
@@ -85,28 +92,33 @@ Create geonode role and database
 Edit PostgreSQL configuration file
 
 .. code-block:: shell
+    
     sudo gedit /etc/postgresql/10/main/pg_hba.conf
 
 Scroll to the bottom of the file and edit this line
 
 .. code-block:: shell
+    
     # "local" is for Unix domain socket connections only
     local   all             all                            peer
 
-As follows
+To be as follows
 
 .. code-block:: shell
+
     # "local" is for Unix domain socket connections only
     local   all             all                                trust
 
 Then restart PostgreSQL to make the changes effective
 
 .. code-block:: shell
+    
     sudo service postgresql restart
 
 Java dependencies
 
 .. code-block:: shell
+    
     $ sudo apt-get install -y openjdk-11-jdk --no-install-recommends
 
 Install supporting tools
