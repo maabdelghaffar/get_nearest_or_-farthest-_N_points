@@ -30,11 +30,12 @@ Installation steps
 ..................
 1- Install build tools and libraries
 
-.. code-block:: sh
+.. code-block:: shell
     $ sudo apt-get install -y build-essential libxml2-dev libxslt1-dev libpq-dev zlib1g-dev
 
 2- Install dependencies and supporting tools
 Install python native libraries and tools
+
 .. code-block:: shell
     $ sudo apt-get install -y python-dev python-pil python-lxml python-pyproj python-shapely python-nose python-httplib2 python-pip software-properties-common
 
