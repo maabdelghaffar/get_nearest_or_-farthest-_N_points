@@ -35,12 +35,15 @@ Here, django-admin is used with startproject option to create my_geonode project
 .. code-block:: shell
     
     $ pip install -e my_geonode
+
+
 3- Install geoserver using paver as follows
 
 .. code-block:: shell
     
     $ cd /home/geonode/my_geonode
     $ paver setup
+
 4- Note the GeoNode database connection parameters mentioned in the local_settings.py configuration file. If not found, copy local_settings.py.sample and rename it to local_settings.py then use psql to create the required user and grant the required previleges as follows:
 
 .. code-block:: shell
@@ -53,12 +56,15 @@ Here, django-admin is used with startproject option to create my_geonode project
 	postgres=# GRANT ALL PRIVILEGES ON DATABASE "geonode" to geonode;
 	GRANT
 	postgres=# \q
+
+
 5- Run GeoNode using paver 
 
 .. code-block:: shell
     
     $ cd /home/geonode/my_geonode
     $ paver start
+
 .. note:: You may find this warning message: You have 132 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): account, actstream, admin, agon_ratings, announcements, auth, avatar, base, contenttypes, dialogos, documents, favorite, geonode_client, geonode_themes, groups, guardian, invitations, layers, maps, mapstore2_adapter, monitoring, oauth2_provider, people, pinax_notifications, services, sessions, sites, socialaccount, taggit, tastypie, upload, user_messages. Run 'python manage.py migrate' to apply them.
 
 
@@ -68,17 +74,20 @@ Which means you have some sql statements not executed yet and you need to run th
     
     $ python manage.py migrate
     $ paver start
+
 6- Once the previous step is done, you can visit 0.0.0.0:8000 or localhost:8000 to view the GUI of GeoNode. However, we still don't have an account in order to login from the GUI. This can be done using django's manage.py createsuperuser as follows:
 
 .. warning:: If encountered this message: (Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add u'0.0.0.0' to ALLOWED_HOSTS) It can be fixed in the local_settings.py file
 
 .. code-block:: shell
+    
     $ python manage.py createsuperuser
     $ Username: admin
     $ Email address: admin@admin.com
     $ Password: admin
     $ Password (again): 
     $ Superuser created successfully
+
 7- Use the created account to login from the GUI through localhost:8000 or 0.0.0.0:8000
 
 
@@ -128,6 +137,7 @@ To:
     <li>
      <a href="{{ PROJECT_ROOT }}/geocollections">Geocollections</a>
     </li>
+
 On browser refresh you will see a new entry in the nav bar which is persistent to the whole site.
 
 **GeoNode generic page**
