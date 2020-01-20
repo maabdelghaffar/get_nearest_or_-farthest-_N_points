@@ -895,8 +895,11 @@ We need now to install our my_geonode project following these steps:
 - add the apache rights to the my_geonode folder with a directory like
 
 <Directory "/path/to/my_geonode/">
+
      Order allow,deny
+     
      Require all granted
+     
 </Directory>
 
 - Test your server.
