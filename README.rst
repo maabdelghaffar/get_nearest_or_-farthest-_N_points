@@ -77,7 +77,7 @@ Which means you have some sql statements not executed yet and you need to run th
     $ python manage.py migrate
     $ paver start
 
-.. warning:: If encountered this message: (Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add u'0.0.0.0' to ALLOWED_HOSTS) It can be fixed in the settings.py file. You will need to add: ALLOWED_HOSTS = ['0.0.0.0'] in settings.py
+.. warning:: If encountered this message: ``(Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add u'0.0.0.0' to ALLOWED_HOSTS)`` It can be fixed in the settings.py file. You will need to add: ``ALLOWED_HOSTS = ['0.0.0.0']`` in settings.py
 
 .. image:: ./img/geonode-project-gui.png
 
@@ -296,9 +296,13 @@ Now we will add the "patch_resource_base" method to the AppConfig and execute it
 Once you run python manage.py migrate:
 
 Running migrations:
-  Applying announcements.0002_auto_20200119_1257... OK
-  Applying base.0031_resourcebase_doi... OK
-  Applying people.0027_auto_20200119_1257... OK
+
+Applying announcements.0002_auto_20200119_1257... OK
+
+Applying base.0031_resourcebase_doi... OK
+
+Applying people.0027_auto_20200119_1257... OK
+
 
 Till now, we have patched the DB. however, it is not yet sufficient as we still need to display the added field.
 
@@ -883,7 +887,9 @@ If you remove the 'AnonymousUser' line from perms and assign again the permissio
 So far we demonstrated how to modify, extend and style our GeoNode in dev mode but now it's time to go on production. In this section we will clarify how to:
 
 - commit your work on GitHub
+
 - setup your server
+
 - setup your GeoNode for production
   
   
@@ -914,20 +920,14 @@ Steps to push your code to GitHub:
 
 **Setup the server**
 
-There are different options for deploying:
+There are several options for deploying GeoNode projects on servers. In this section, we explain how to deploy it on Ubuntu server 18.04 using system-wide installation
 
-- on a dedicated Ubuntu 16.04 server installing GeoNode with apt-get (sistemwide installation)
-
-- on a server with other services installing GeoNode and my_geonode in a python virtualenv
-
-- on a dedicated server using a python sistemwide installation (sudo pip install .. )
-
-.. note:: For this documentation, we assume the first option so that apache and tomcat as well as postgres are all set up. Follow the quick install doc at http://docs.geonode.org/en/master/tutorials/install_and_admin/quick_install.html The other installations require a full manual setup as described in the docs at http://docs.geonode.org/en/master/tutorials/install_and_admin/geonode_install/index.html
+.. note:: For quick installation, follow the "quick install documentation" at http://docs.geonode.org/en/master/install/core/index.html 
 
 
 **Setup our my_geonode**
 
-We need now to install our my_geonode project following these steps:
+We need now to install the developed "my_geonode" project following these steps:
 
 - git clone from your repository (in the folder of your preference)
 
