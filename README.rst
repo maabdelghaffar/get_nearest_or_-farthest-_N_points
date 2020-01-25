@@ -121,7 +121,7 @@ Then once we refreshed the browser, we should see the change as follows:
 .. image:: ./img/red-background.png
 
 
-Adding the ".home" class is necessary in order to let the rule have precedence/priority over the GeoNode's one. We can see this by inspecting the element in the developer console.
+Adding the ``".home"`` class is necessary in order to let the rule have precedence/priority over the GeoNode's one. We can see this by inspecting the element in the developer console.
 
 **The top menu:**
 
@@ -295,13 +295,12 @@ Now we will add the "patch_resource_base" method to the AppConfig and execute it
 
 Once you run python manage.py migrate:
 
-Running migrations:
-
-Applying announcements.0002_auto_20200119_1257... OK
-
-Applying base.0031_resourcebase_doi... OK
-
-Applying people.0027_auto_20200119_1257... OK
+.. code-block:: shell
+   
+   Running migrations:
+   Applying announcements.0002_auto_20200119_1257... OK
+   Applying base.0031_resourcebase_doi... OK
+   Applying people.0027_auto_20200119_1257... OK
 
 
 Till now, we have patched the DB. however, it is not yet sufficient as we still need to display the added field.
@@ -922,7 +921,7 @@ Steps to push your code to GitHub:
 
 There are several options for deploying GeoNode projects on servers. In this section, we explain how to deploy it on Ubuntu server 18.04 using system-wide installation
 
-.. note:: For quick installation, follow the "quick install documentation" at http://docs.geonode.org/en/master/install/core/index.html 
+.. note:: For quick installation, follow the "INSTALLING doc" at http://docs.geonode.org/en/master/install/core/index.html
 
 
 **Setup our my_geonode**
@@ -942,11 +941,8 @@ We need now to install the developed "my_geonode" project following these steps:
 .. code:: apache
    
    <Directory "/path/to/my_geonode/">
-     
      Order allow,deny
-     
      Require all granted
-     
    </Directory>
 
 - Test your server.
